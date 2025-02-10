@@ -2,7 +2,7 @@ import Link from "next/link";
 import "./globals.css"
 
 const IndexPage = () => {
-  return (
+  return(
     <div className="container">
         <header>
             <div className="logo">
@@ -18,7 +18,7 @@ const IndexPage = () => {
                   <img src="/ImagenIndex.jpg" alt="Imagen de ANBU" />
                 </div>
             </section>
-            <section className="hero">
+            <section className="hero-page">
                 <h1>Bienvenido a ANBU</h1>
                 <h2>ANBU es un equipo de operaciones encubiertas de élite. Somos las sombras que protegen la luz. Somos el silencio que impone la paz.</h2>
                 <div className="buttons">

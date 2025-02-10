@@ -38,7 +38,7 @@ header {
   color: white;
 }
 
-.hero {
+.hero-page {
   text-align: center;
   padding: 30px 0;
   background-size: cover;
@@ -47,7 +47,7 @@ header {
   color: white;
 }
 
-.hero::before {
+.hero-page::before {
   content: "";
   position: absolute;
   top: 0;
@@ -63,14 +63,14 @@ header {
   background-size: cover;
 }
 
-.hero h1 {
+.hero-page h1 {
   font-size: 3rem;
   margin-bottom: 15px;
   position: relative;
   z-index: 2;
 }
 
-.hero h2 {
+.hero-page h2 {
   font-size: 1.5rem;
   color: #ccc;
   margin-bottom: 25px;
@@ -89,6 +89,13 @@ header {
   z-index: 2;
 }
 
+.font-bold {
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 2;
+}
 
 .login {
   background-color: #444;
@@ -104,7 +111,7 @@ header {
   z-index: 2;
   padding: 30px;
   background-color: #1a1a1a;
-  color: white;
+  color: rgba(255, 255, 255, 0.867);
   
 }
 
@@ -112,12 +119,13 @@ header {
 .join p {
   margin: 0;
   font-size: 1.2rem;
-  flex: 1;
   text-align: left;
+  flex-wrap: wrap;
+  width: 80%;
 }
 
 .register {
-  background-color: #555;
+  background-color: #444;
   color: white;
   border: none;
   padding: 15px 25px;
