@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/app/components/ui/cards";
 import { Button } from "@/app/components/ui/button";
+import Link from "next/link";
 import "./perfil.css";
 
 export default function Profile() {
