@@ -11,7 +11,8 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 90%; /* Más flexible para móviles */
+    max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
     margin: auto;
 }
 
@@ -19,7 +20,7 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 15px 20px;
+    padding: 1rem 1.25rem; /* 15px 20px en rem */
     background-color: #000;
     color: white;
     border-bottom: 1px solid #BDBDBD;
@@ -27,27 +28,27 @@ header {
 
 .hero {
     text-align: center;
-    padding: 30px ;
+    padding: 2rem 1.5rem; /* 30px en rem */
     background-size: cover;
     background-position: center;
     position: relative;
     color: white;
-  }
+}
 
 .hero h1 {
-    margin-top: 150px;
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+    margin-top: 9.375rem; /* 150px en rem */
+    font-size: 2.5rem; /* Tamaño base para móviles */
+    margin-bottom: 1rem; /* 15px en rem */
     position: relative;
     z-index: 2;
 }
 
 .hero h2 {
-  font-size: 1.5rem;
-  color: #ccc;
-  margin-bottom: 25px;
-  position: relative;
-  z-index: 2;
+    font-size: 1.5rem; /* Tamaño base para móviles */
+    color: #ccc;
+    margin-bottom: 1.5625rem; /* 25px en rem */
+    position: relative;
+    z-index: 2;
 }
 
 .imagen {
@@ -56,58 +57,103 @@ header {
 
 .imagen img {
     width: 100%;
-    height: 600px;
-    opacity: 0.5; 
+    height: auto; /* Altura flexible para móviles */
+    max-height: 37.5rem; /* 600px en rem */
+    opacity: 0.5;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1; 
-    margin-top: 75px;     
+    z-index: -1;
+    margin-top: 4.6875rem; /* 75px en rem */
 }
 
-
-.logo{
+.logo {
     display: flex;
     align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
-    
 }
 
 .logo svg {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    width: 1.875rem; /* 30px en rem */
+    height: 1.875rem; /* 30px en rem */
+    margin-right: 0.625rem; /* 10px en rem */
     color: white;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    text-align: center; 
+    gap: 1rem; /* 16px en rem */
+    text-align: center;
 }
 
-
 input {
-    width: 30%;
-    padding: 12px;
+    width: 100%; /* Ocupa todo el ancho en móviles */
+    max-width: 30rem; /* Limita el ancho máximo */
+    padding: 0.75rem; /* 12px en rem */
     border: 1px solid #3b4754;
     background-color: #1b2127;
     color: white;
-    border-radius: 8px;
-    font-size: 1 rem;
+    border-radius: 0.5rem; /* 8px en rem */
+    font-size: 1rem;
+    margin: 0 auto; /* Centrado horizontal */
 }
 
 .login-button {
-    width: 15%;
-    padding: 12px;
+    width: 100%; /* Ocupa todo el ancho en móviles */
+    max-width: 15rem; /* Limita el ancho máximo */
+    padding: 0.75rem; /* 12px en rem */
     background-color: #FFFFFF;
     border: none;
-    font-size: 0.8 rem;
+    font-size: 0.8rem;
     border-radius: 50px;
     color: rgb(0, 0, 0);
     font-weight: bold;
     cursor: pointer;
-    margin: 50px auto 0 auto; /* Center horizontally */
+    margin: 3.125rem auto 0 auto; /* 50px en rem */
+}
+
+/* Media Queries para Responsive Design */
+
+/* Tablets */
+@media (min-width: 768px) {
+    .container {
+        width: 80%;
+    }
+
+    .hero h1 {
+        font-size: 3rem; /* Tamaño más grande para tablets */
+    }
+
+    .hero h2 {
+        font-size: 1.75rem; /* Tamaño más grande para tablets */
+    }
+
+    input {
+        width: 50%; /* Ancho reducido para tablets */
+    }
+
+    .login-button {
+        width: 20%; /* Ancho reducido para tablets */
+    }
+}
+
+/* Escritorios */
+@media (min-width: 1024px) {
+    .hero h1 {
+        margin-top: 12.5rem; /* 200px en rem */
+    }
+
+    .imagen img {
+        height: 37.5rem; /* 600px en rem */
+    }
+
+    input {
+        width: 30%; /* Ancho reducido para escritorios */
+    }
+
+    .login-button {
+        width: 15%; /* Ancho reducido para escritorios */
+    }
 }
