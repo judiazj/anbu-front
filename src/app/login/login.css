@@ -109,6 +109,5 @@ input {
     color: rgb(0, 0, 0);
     font-weight: bold;
     cursor: pointer;
-    margin-left: 200px;
-    margin-top: 50px;
+    margin: 50px auto 0 auto; /* Center horizontally */
 }
