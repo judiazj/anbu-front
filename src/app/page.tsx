@@ -1,5 +1,6 @@
-import Link from "next/link";
-import "./globals.css"
+import Link from 'next/link';
+import './globals.css'
+import { Header } from './components/header/Header';
 
 const IndexPage = () => {
   return(
@@ -37,6 +38,7 @@ const IndexPage = () => {
         </main>
     </div>
   )
+	
 }
 
 export default IndexPage;

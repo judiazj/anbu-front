@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 90%; 
   margin: auto;
 }
 
@@ -59,19 +59,20 @@ header {
 
 .fondo img {
   width: 100%;
-  height: 500px;
+  height: auto; 
+  max-height: 500px; 
   background-size: cover;
 }
 
 .hero-page h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 15px;
   position: relative;
   z-index: 2;
 }
 
 .hero-page h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem; 
   color: #ccc;
   margin-bottom: 25px;
   position: relative;
@@ -79,18 +80,18 @@ header {
 }
 
 .buttons button {
-  padding: 14px 30px;
+  padding: 12px 25px; 
   margin: 10px;
   border: none;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem; 
   border-radius: 5px;
   position: relative;
   z-index: 2;
 }
 
 .font-bold {
-  font-size: 1.4rem;
+  font-size: 1.2rem; 
   color: white;
   margin-bottom: 25px;
   position: relative;
@@ -105,34 +106,88 @@ header {
 }
 
 .join {
-  font-size: 3rem;
+  font-size: 2rem; 
   margin-bottom: 15px;
   position: relative;
   z-index: 2;
-  padding: 30px;
+  padding: 20px; 
   background-color: #1a1a1a;
   color: rgba(255, 255, 255, 0.867);
-  
 }
-
 
 .join p {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem; 
   text-align: left;
   flex-wrap: wrap;
-  width: 80%;
+  width: 100%; 
 }
 
 .register {
   background-color: #444;
   color: white;
   border: none;
-  padding: 15px 25px;
+  padding: 12px 20px; 
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem; 
   font-weight: bold;
   border-radius: 5px;
-  margin-top: -60px;
-  float: right;
+  margin-top: 20px; 
+  float: none; 
+  width: 100%; 
+}
+
+/* Media Queries para Responsive Design */
+
+/* Tablets */
+@media (min-width: 768px) {
+  .container {
+    width: 80%;
+  }
+
+  .hero-page h1 {
+    font-size: 3rem;
+  }
+
+  .hero-page h2 {
+    font-size: 1.5rem;
+  }
+
+  .buttons button {
+    padding: 14px 30px;
+    font-size: 1.2rem;
+  }
+
+  .font-bold {
+    font-size: 1.4rem;
+  }
+
+  .join {
+    font-size: 3rem;
+    padding: 30px;
+  }
+
+  .join p {
+    font-size: 1.2rem;
+    width: 80%;
+  }
+
+  .register {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    margin-top: -60px;
+    float: right;
+    width: auto;
+  }
+}
+
+/* Escritorios */
+@media (min-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+
+  .fondo img {
+    height: 500px;
+  }
 }
