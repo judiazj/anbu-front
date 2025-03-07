@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { useRouter } from "next/navigation";
 import styles from "./historial_hokage.module.css";
 
@@ -19,49 +19,40 @@ interface Cazador {
 
 export default function MissionsPage() {
   const router = useRouter();
-
-  // Datos de ejemplo
-  const [missions] = useState<Mission[]>([
-    {
-      id: 1,
-      mision: "Rescate en la aldea oculta",
-      cazadorAnbu: "Kakashi Hatake",
-      estado: "En progreso",
-      fechaInicio: "2025-03-01",
-      fechaLimite: "2025-03-10",
-    },
-    {
-      id: 2,
-      mision: "Espionaje en territorio enemigo",
-      cazadorAnbu: "Itachi Uchiha",
-      estado: "Completado",
-      fechaInicio: "2025-02-15",
-      fechaLimite: "2025-02-20",
-    },
-    {
-      id: 3,
-      mision: "Protección de alto nivel",
-      cazadorAnbu: "Shisui Uchiha",
-      estado: "Retraso",
-      fechaInicio: "2025-03-05",
-      fechaLimite: "2025-03-12",
-    },
-  ]);
-
-  const [cazadores] = useState<Cazador[]>([
-    { id: 1, nombre: "Kakashi Hatake" },
-    { id: 2, nombre: "Itachi Uchiha" },
-    { id: 3, nombre: "Shisui Uchiha" },
-    { id: 4, nombre: "Guy Might" },
-    { id: 5, nombre: "Asuma Sarutobi" },
-    { id: 6, nombre: "Danzo Shimura" },
-    { id: 7, nombre: "Yamato" },
-    { id: 8, nombre: "Sai" },
-    // Agrega más para probar el scroll
-  ]);
-
+  
+  // Estados vacíos al inicio
+  const [missions, setMissions] = useState<Mission[]>([]);
+  const [cazadores, setCazadores] = useState<Cazador[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedEstado, setSelectedEstado] = useState("Todo");
+
+  // Efecto para cargar datos desde el backend (ejemplo con fetch)
+  useEffect(() => {
+    // Llamada para misiones
+    const fetchMissions = async () => {
+      try {
+        const response = await fetch("/api/missions"); 
+        const data = await response.json();
+        setMissions(data); // Guardar en estado
+      } catch (error) {
+        console.error("Error al obtener misiones:", error);
+      }
+    };
+
+    // Llamada para cazadores
+    const fetchCazadores = async () => {
+      try {
+        const response = await fetch("/api/cazadores");
+        const data = await response.json();
+        setCazadores(data); // Guardar en estado
+      } catch (error) {
+        console.error("Error al obtener cazadores:", error);
+      }
+    };
+
+    fetchMissions();
+    fetchCazadores();
+  }, []);
 
   // Filtrado de ejemplo
   const filteredMissions = missions.filter((mission) => {
@@ -80,7 +71,7 @@ export default function MissionsPage() {
   };
 
   const handleCreateMission = () => {
-    router.push("/crear-mision");
+    router.push("/crear_mision");
   };
 
   const handleDetalle = (missionId: number) => {

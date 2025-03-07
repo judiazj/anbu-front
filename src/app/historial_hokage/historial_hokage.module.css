@@ -35,7 +35,7 @@ body {
 .titleContainer {
   /* Deja un poco más de espacio debajo del título */
   margin-bottom: 20px;
-  margin-inline: 95px;
+  margin-inline: 80px;
 }
 
 .title {
