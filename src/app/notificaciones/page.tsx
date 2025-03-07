@@ -38,8 +38,8 @@ export default function Notifications() {
                                 <img src="/icons/search.svg" />
                                 <span>Misiones</span>
                             </Button>
-                            <Button className="section_button active">
-                                <img src="/icons/notification.svg" />
+                            <Button className="section_button">
+                                <img src="/icons/notification_active.svg" />
                                 <span>Notificaciones</span>
                             </Button>
                             <Button className="menu_button">
