@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/*Estilos generales*/
 body {
   font-family: 'Noto Sans', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #111;
   color: #ddd;
+  animation: fadeInZoom 2s ease-in-out;
 }
 
 .container {
@@ -24,6 +26,7 @@ header {
   color: white;
 }
 
+/* 🔹 Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -38,6 +41,7 @@ header {
   color: white;
 }
 
+/* 🔹 Hero Page */
 .hero-page {
   text-align: center;
   padding: 30px 0;
@@ -45,6 +49,9 @@ header {
   background-position: center;
   position: relative;
   color: white;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fade-in 1s ease-out forwards;
 }
 
 .hero-page::before {
@@ -55,6 +62,8 @@ header {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  animation: clear-blur 1.5s ease-out forwards;
 }
 
 .fondo img {
@@ -64,11 +73,13 @@ header {
   background-size: cover;
 }
 
+/* 🔹 Textos principales */
 .hero-page h1 {
   font-size: 2.5rem;
   margin-bottom: 15px;
   position: relative;
   z-index: 2;
+  animation: glitch-text 0.2s infinite alternate;
 }
 
 .hero-page h2 {
@@ -79,50 +90,55 @@ header {
   z-index: 2;
 }
 
+/* 🔹 Botones */
 .buttons button {
-  padding: 12px 25px; 
+  padding: 12px 25px;
   margin: 10px;
   border: none;
   cursor: pointer;
-  font-size: 1rem; 
+  font-size: 1rem;
   border-radius: 5px;
   position: relative;
   z-index: 2;
-}
-
-.font-bold {
-  font-size: 1.2rem; 
+  background-color: #222;
   color: white;
-  margin-bottom: 25px;
-  position: relative;
-  z-index: 2;
-}
-
-.login {
-  background-color: #444;
-  color: white;
-  border-radius: 5px;
+  text-transform: uppercase;
   font-weight: bold;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 5px  #ff0000, 0 0 10px  #ff0000;
+  animation: neon-glow 1.5s infinite alternate;
 }
 
-.join {
-  font-size: 2rem; 
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 2;
-  padding: 20px; 
-  background-color: #1a1a1a;
-  color: rgba(255, 255, 255, 0.867);
+.buttons button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
 }
 
-.join p {
-  margin: 0;
-  font-size: 1rem; 
-  text-align: left;
-  flex-wrap: wrap;
-  width: 100%; 
+/* Animación de brillo */
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+  }
+  100% {
+    box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+  }
 }
 
+.buttons button:active {
+  animation: shake 0.2s ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+
+/* 🔹 Efecto Hover en Botones */
 .register {
   background-color: #444;
   color: white;
@@ -133,13 +149,93 @@ header {
   font-weight: bold;
   border-radius: 5px;
   margin-top: 20px; 
-  float: none; 
-  width: 100%; 
+  width: 100%;
 }
 
-/* Media Queries para Responsive Design */
+.register:hover {
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+  background-color: #ff0000;
+}
 
-/* Tablets */
+/* 🔹 Animaciones */
+
+/* ✨ Fade-in para Hero Page */
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✨ Suavizado del blur de fondo */
+@keyframes clear-blur {
+  to {
+    backdrop-filter: blur(0);
+  }
+}
+
+/* ✨ Efecto Glitch en Textos */
+@keyframes glitch-text {
+  0% { text-shadow: 2px 2px 8px #ff0000, -2px -2px 8px #ff2222; }
+  25% { text-shadow: -3px -3px 10px #ff0000, 3px 3px 10px #ff2222; }
+  50% { text-shadow: 2px -2px 12px #ff0000, -2px 2px 12px #ff2222; }
+  100% { text-shadow: -3px 3px 15px #ff0000, 3px -3px 15px #ff2222; }
+}
+
+/* 🔹 Fondo de video con efectos */
+.video-fondoBR {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  background: black;
+  z-index: 998; 
+  filter: brightness(40%) contrast(150%) saturate(120%); 
+}
+
+/* 🔹 Mensaje emergente con efecto de alerta */
+.mensaje-emergenteBR {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: red;
+  font-family: 'Courier New', monospace;
+  padding: 20px;
+  border: 3px solid red;
+  box-shadow: 0px 0px 10px red;
+  text-align: center;
+  z-index: 2000;
+  animation: anbu-alertaBR 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes anbu-alertaBR {
+  0% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* Efecto de entrada */
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+audio {
+  display: none; 
+}
+
+
+
+/* 🔹 Responsive para Tablets */
 @media (min-width: 768px) {
   .container {
     width: 80%;
@@ -158,10 +254,6 @@ header {
     font-size: 1.2rem;
   }
 
-  .font-bold {
-    font-size: 1.4rem;
-  }
-
   .join {
     font-size: 3rem;
     padding: 30px;
@@ -178,16 +270,5 @@ header {
     margin-top: -60px;
     float: right;
     width: auto;
-  }
-}
-
-/* Escritorios */
-@media (min-width: 1024px) {
-  .container {
-    width: 80%;
-  }
-
-  .fondo img {
-    height: 500px;
   }
 }

@@ -12,6 +12,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        '/perfil'
+    //    '/perfil'
     ], // Rutas a proteger
 };
