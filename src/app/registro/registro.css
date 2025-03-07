@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.containerR {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 420px;
+    text-align: center;
+}
+
+
+.logoreg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.logoreg svg {
+    width: 40px;
+    height: 40px;
+    fill: white;
+}
+
+
+.form-section h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.form-section p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.labelreg {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.inputreg {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+}
+
+
+.form-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.custom-file-label {
+    display: block;
+    background-color: #444;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    color: white;
+    border: 1px solid white;
+}
+
+
+.input-file {
+    display: none;
+}
+
+
+.register-button {
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+}

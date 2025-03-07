@@ -30,7 +30,9 @@ const IndexPage = () => {
             <section className="join">
                 <p><span className="font-bold">Únete a ANBU</span></p>
                 <p>Se parte de la raíz Konoha, protege el futuro de la aldea desde las sombras y ten el valor de sacrificarte por la voluntad de fuego. </p>
+                <Link href="./registro">
                 <button className="register">Regístrate ahora</button>
+                </Link>
             </section>
         </main>
     </div>
