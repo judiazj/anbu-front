@@ -55,6 +55,10 @@ export default function MissionsPage() {
     router.push(`/misiones/${missionId}`);
   };
 
+  const handleProfile = () => {
+    router.push("/perfil");
+  };
+
   return (
 
     <><header>
@@ -84,7 +88,7 @@ export default function MissionsPage() {
               <img src="/icons/notification.svg" />
               <span>Notificaciones</span>
             </button>
-            <button className="menu_button">
+            <button className="menu_button" onClick={handleProfile}>
               <img src="/icons/user.svg" />
               <span>Perfil</span>
             </button>
@@ -95,31 +99,31 @@ export default function MissionsPage() {
         <div className="rightContainer">
           <div className="filters">
             <button
-              className={`filterButton ${selectedEstado === "Todo" ? "active" : ""}`}
+              className={`filterButton 1 ${selectedEstado === "Todo" ? "active" : ""}`}
               onClick={() => handleEstadoChange("Todo")}
             >
               Todo
             </button>
             <button
-              className={`filterButton ${selectedEstado === "En progreso" ? "active" : ""}`}
+              className={`filterButton 2 ${selectedEstado === "En progreso" ? "active" : ""}`}
               onClick={() => handleEstadoChange("En progreso")}
             >
               En progreso
             </button>
             <button
-              className={`filterButton ${selectedEstado === "Completado" ? "active" : ""}`}
+              className={`filterButton 3 ${selectedEstado === "Completado" ? "active" : ""}`}
               onClick={() => handleEstadoChange("Completado")}
             >
               Completado
             </button>
             <button
-              className={`filterButton ${selectedEstado === "Retraso" ? "active" : ""}`}
+              className={`filterButton 4 ${selectedEstado === "Retraso" ? "active" : ""}`}
               onClick={() => handleEstadoChange("Retraso")}
             >
               Retraso
             </button>
             <button
-              className={`filterButton ${selectedEstado === "Fracaso" ? "active" : ""}`}
+              className={`filterButton 5 ${selectedEstado === "Fracaso" ? "active" : ""}`}
               onClick={() => handleEstadoChange("Fracaso")}
             >
               Fracaso
