@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import "./historial_hokage.css";
 import Link from "next/link";
 import { getMisions } from "@/services/mision-service";
+import { decodeToken } from "@/utils/decode-token";
 
 interface Mission {
   id: number;
@@ -19,6 +20,11 @@ interface Cazador {
   nombre: string;
 }
 
+const {id, rango} = decodeToken();
+        if (rango!=='hokage'){
+            window.location.href='/perfil'
+        }
+
 const HistorialHokage = () => {
   const [missions, setMissions] = useState<Mission[]>([]);
   const [cazadores, setCazadores] = useState<Cazador[]>([]);
@@ -29,14 +35,16 @@ const HistorialHokage = () => {
     const fetchMissions = async () => {
       try {
         const { data } = await getMisions();
+        
         const missionsFormatted: Mission[] = data.map((m: any) => ({
-          id: m.id ?? 0,
-          titulo: m.mision ?? "",
-          id_cazador: m.cazadorAnbu ?? "",
-          fecha_inicio: new Date(m.fechaInicio),
-          fecha_fin: new Date(m.fechaLimite),
+          id: m._id ?? "",  
+          titulo: m.titulo ?? "Sin título",  
+          id_cazador: m.id_cazador ?? "Desconocido",  
+          fecha_inicio: m.fecha_inicio ? new Date(m.fecha_inicio) : new Date(),
+          fecha_fin: m.fecha_fin ? new Date(m.fecha_fin) : new Date(),
           estado: m.estado ?? "Desconocido",
         }));
+        
         setMissions(missionsFormatted);
       } catch (error) {
         console.error("Error al obtener misiones:", error);
@@ -52,6 +60,18 @@ const HistorialHokage = () => {
       (selectedEstado === "Todo" || mission.estado === selectedEstado)
     );
   });
+
+  const formatoFecha = (fecha: Date) => {
+    return new Date(fecha).toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+  };
+
+  const handleStateChange = (id: number, newState: string) => {
+    setMissions(missions.map(mission => mission.id === id ? { ...mission, estado: newState } : mission));
+  };
 
   return (
     <div className="container_hk">
@@ -84,7 +104,7 @@ const HistorialHokage = () => {
 
         <div className="rightContainer_hk">
           <div className="filters_hk">
-            {["Todo", "En progreso", "Completado", "Retraso", "Fracaso"].map((estado) => (
+            {["Todo", "en proceso", "completada", "Retraso", "Fracaso"].map((estado) => (
               <button
                 key={estado}
                 className={`filterButton_hk ${selectedEstado === estado ? "active_hk" : ""}`}
@@ -115,17 +135,27 @@ const HistorialHokage = () => {
                 <th className="thk">Fecha Límite</th>
               </tr>
             </thead>
-            <tbody>
-              {filteredMissions.map((mission) => (
-                <tr key={mission.id}>
-                  <td className="tdhk">{mission.titulo}</td>
-                  <td className="tdhk">{mission.id_cazador}</td>
-                  <td className="tdhk">{mission.estado}</td>
-                  <td className="tdhk">{mission.fecha_inicio.toDateString()}</td>
-                  <td className="tdhk">{mission.fecha_fin.toDateString()}</td>
-                </tr>
-              ))}
+            <tbody className="tbhk">
+          {filteredMissions.map((mission) => (
+            <tr key={mission.id}>
+              <td className="tdhk">{mission.titulo}</td>
+              <td className="tdhk">{mission.id_cazador}</td>
+              <td className="tdhk">
+                <select
+                  value={mission.estado}
+                  onChange={(e) => handleStateChange(mission.id, e.target.value)}>
+                  <option value="en proceso">En proceso</option>
+                  <option value="completada">Completada</option>
+                  <option value="Retraso">Retraso</option>
+                  <option value="Fracaso">Fracaso</option>
+                </select>
+                </td>
+                <td>{formatoFecha(mission.fecha_inicio)}</td>
+                <td className="tdhk">{formatoFecha(mission.fecha_fin)}</td>
+              </tr>
+            ))}
             </tbody>
+
           </table>
         </div>
       </div>

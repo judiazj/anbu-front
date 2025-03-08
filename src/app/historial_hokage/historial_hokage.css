@@ -232,3 +232,9 @@ body {
 .detailButton_hk:hover {
   background-color: #334;
 }
+
+select {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid gray;
+}
