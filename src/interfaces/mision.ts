@@ -21,3 +21,7 @@ export interface Mision {
     rango: RangoMision;
     id_hokage: string;
 }
+
+export interface CreateMision extends Pick<Mision, 'titulo' | 'descripcion' | 'rango' | 'id_hokage'> {
+
+}
