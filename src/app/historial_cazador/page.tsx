@@ -177,6 +177,20 @@ export default function MissionsPage() {
                   </td>
                 </tr>
               ))}
+              {/* Ejemplo estático */}
+              <tr className="tr_cazador">
+                <td className="tdcazador">Ejemplo de Misión</td>
+                <td className="tdcazador">En progreso</td>
+                <td className="tdcazador">2023-01-01</td>
+                <td className="tdcazador">2023-12-31</td>
+                <td className="tdcazador">
+                  <button
+                    className="detailButton_cazador"
+                  >
+                    Detalles
+                  </button>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

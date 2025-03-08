@@ -1,11 +1,14 @@
 'use client';
 
+import { decodeToken } from '@/utils/decode-token';
 import { Header } from '../components/header/Header';
 import { ProfileCard } from './components/ProfileCard';
 import './perfil.css';
+import Link from 'next/link';
 
 export default function Profile() {
 
+  const {rango} = decodeToken()
 
   return (
     <div className="profile-container">
@@ -18,6 +21,11 @@ export default function Profile() {
           <h2 className='h2_perfil'>ANBU</h2>
         </div>
       </header>
+      {rango === 'hokage' ? 
+      <>
+      <Link href='/historial_hokage'> Historial de misiones</Link> 
+      </>:
+      <Link href='historial_cazador'>Historial de misiones</Link>}
 
       <ProfileCard />
     </div>
