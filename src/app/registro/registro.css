@@ -56,7 +56,7 @@
     display: none;
 }
 
-body {
+.fondoreg {
     background-color: #121212;
     color: white;
     font-family: Arial, sans-serif;
@@ -65,21 +65,15 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                url('https://pa1.aminoapps.com/6651/b8e571f4a827a3584b2cf05d1e60c14fb429b92b_hq.gif') 
+                no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; 
+    
 }
 
-/* 🎇 Efecto de fondo con partículas de chakra */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://pa1.aminoapps.com/6651/b8e571f4a827a3584b2cf05d1e60c14fb429b92b_hq.gif') no-repeat center center fixed;
-    background-size: cover;
-    opacity: 0.4; 
-    z-index: -1; 
-}
+
 
 
 @keyframes chakraGlow {
