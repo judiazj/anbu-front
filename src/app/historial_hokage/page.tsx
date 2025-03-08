@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import "./historial_hokage.css";
 import { Header } from "../components/header/Header";
+import Link from "next/link";
 
 interface Mission {
   id: number;
@@ -70,17 +71,6 @@ export default function MissionsPage() {
     setSelectedEstado(estado);
   };
 
-  const handleCreateMission = () => {
-    router.push("/crear_mision");
-  };
-
-  const handleProfile = () => {
-    router.push("/perfil");
-  };
-
-  const handleDetalle = (missionId: number) => {
-    router.push(`/misiones/${missionId}`);
-  };
 
   return (
     <div className="container_hk">
@@ -96,22 +86,26 @@ export default function MissionsPage() {
               <h1 className="title_hk">Misiones</h1>
             </div>
             <div className="buttonContainer_hk">
-              <button className="createButton_hk" onClick={handleCreateMission}>
-                Crear Misión
-              </button>
+              <Link href="/crear_mision">
+                <button className="createButton_hk">Crear Misión</button>
+              </Link>
             </div>
           </div>
 
           <aside className="sidebar_hk">
             <nav>
-              <button className="menu_button_hk">
-                <img src="/icons/notification.svg" alt="Notificaciones" />
-                <span>Notificaciones</span>
-              </button>
-              <button className="menu_button_hk" onClick={handleProfile}>
-                <img src="/icons/user.svg" alt="Perfil" />
-                <span>Perfil</span>
-              </button>
+              <Link href="/notificaciones">
+                <button className="menu_button_hk">
+                  <img src="/icons/notification.svg" alt="Notificaciones" />
+                  <span>Notificaciones</span>
+                </button>
+              </Link>
+              <Link href="/perfil">
+                <button className="menu_button_hk">
+                  <img src="/icons/user.svg" alt="Perfil" />
+                  <span>Perfil</span>
+                </button>
+              </Link>
             </nav>
           </aside>
 
@@ -131,41 +125,36 @@ export default function MissionsPage() {
         <div className="rightContainer_hk">
           <div className="filters_hk">
             <button
-              className={`filterButton_hk ${
-                selectedEstado === "Todo" ? "active_hk" : ""
-              }`}
+              className={`filterButton_hk ${selectedEstado === "Todo" ? "active_hk" : ""
+                }`}
               onClick={() => handleEstadoChange("Todo")}
             >
               Todo
             </button>
             <button
-              className={`filterButton_hk ${
-                selectedEstado === "En progreso" ? "active_hk" : ""
-              }`}
+              className={`filterButton_hk ${selectedEstado === "En progreso" ? "active_hk" : ""
+                }`}
               onClick={() => handleEstadoChange("En progreso")}
             >
               En progreso
             </button>
             <button
-              className={`filterButton_hk ${
-                selectedEstado === "Completado" ? "active_hk" : ""
-              }`}
+              className={`filterButton_hk ${selectedEstado === "Completado" ? "active_hk" : ""
+                }`}
               onClick={() => handleEstadoChange("Completado")}
             >
               Completado
             </button>
             <button
-              className={`filterButton_hk ${
-                selectedEstado === "Retraso" ? "active_hk" : ""
-              }`}
+              className={`filterButton_hk ${selectedEstado === "Retraso" ? "active_hk" : ""
+                }`}
               onClick={() => handleEstadoChange("Retraso")}
             >
               Retraso
             </button>
             <button
-              className={`filterButton_hk ${
-                selectedEstado === "Fracaso" ? "active_hk" : ""
-              }`}
+              className={`filterButton_hk ${selectedEstado === "Fracaso" ? "active_hk" : ""
+                }`}
               onClick={() => handleEstadoChange("Fracaso")}
             >
               Fracaso
@@ -209,7 +198,6 @@ export default function MissionsPage() {
                   <td>
                     <button
                       className="detailButton_hk"
-                      onClick={() => handleDetalle(mission.id)}
                     >
                       Detalles
                     </button>
