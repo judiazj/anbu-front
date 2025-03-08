@@ -99,7 +99,8 @@
 }
 
 .inputreg {
-    background: url('https://static.vecteezy.com/system/resources/previews/047/826/220/non_2x/realistic-smoke-effect-on-transparent-background-free-png.png') repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),  
+        url('https://static.vecteezy.com/system/resources/previews/047/826/220/non_2x/realistic-smoke-effect-on-transparent-background-free-png.png') repeat;
     background-size: cover;
     animation: smokeAnimation 5s infinite linear;
 }

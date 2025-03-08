@@ -15,10 +15,10 @@ interface Mission {
 
 export default function MissionsPage() {
   const router = useRouter();
-
   const [missions, setMissions] = useState<Mission[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedEstado, setSelectedEstado] = useState("Todo");
+  const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
 
   useEffect(() => {
     const fetchMissions = async () => {
@@ -53,21 +53,27 @@ export default function MissionsPage() {
     setSelectedEstado(estado);
   };
 
+  const handleDetailsClick = (mission: Mission) => {
+    setSelectedMission(mission);
+  };
+
+  const closeModal = () => {
+    setSelectedMission(null);
+  };
 
   return (
     <div className="container_cazador">
-      {/* Header ARRIBA dentro del contenedor */}
+      {/* Header */}
       <header className="header_cazador">
         <div className="logo_cazador">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" clipRule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor"></path>
           </svg>
-          <h2 className="h2cazador">
-            ANBU</h2>
+          <h2 className="h2cazador">ANBU</h2>
         </div>
       </header>
 
-      {/* Contenido principal (lado izquierdo + lado derecho) */}
+      {/* Contenido principal */}
       <div className="mainContent_cazador">
         {/* Panel izquierdo */}
         <div className="leftContainer_cazador">
@@ -78,7 +84,6 @@ export default function MissionsPage() {
           </div>
 
           <aside className="sidebar_cazador">
-
             <nav>
               <Link href="/notificaciones">
                 <button className="menu_button_cazador">
@@ -99,49 +104,19 @@ export default function MissionsPage() {
         {/* Panel derecho */}
         <div className="rightContainer_cazador">
           <div className="filters_cazador">
-            <button
-              className={`filterButton_cazador ${selectedEstado === "Todo" ? "active_cazador" : ""
-                }`}
-              onClick={() => handleEstadoChange("Todo")}
-            >
-              Todo
-            </button>
-            <button
-              className={`filterButton_cazador ${selectedEstado === "En progreso" ? "active_cazador" : ""
-                }`}
-              onClick={() => handleEstadoChange("En progreso")}
-            >
-              En progreso
-            </button>
-            <button
-              className={`filterButton_cazador ${selectedEstado === "Completado" ? "active_cazador" : ""
-                }`}
-              onClick={() => handleEstadoChange("Completado")}
-            >
-              Completado
-            </button>
-            <button
-              className={`filterButton_cazador ${selectedEstado === "Retraso" ? "active_cazador" : ""
-                }`}
-              onClick={() => handleEstadoChange("Retraso")}
-            >
-              Retraso
-            </button>
-            <button
-              className={`filterButton_cazador ${selectedEstado === "Fracaso" ? "active_cazador" : ""
-                }`}
-              onClick={() => handleEstadoChange("Fracaso")}
-            >
-              Fracaso
-            </button>
+            {["Todo", "En progreso", "Completado", "Retraso", "Fracaso"].map((estado) => (
+              <button
+                key={estado}
+                className={`filterButton_cazador ${selectedEstado === estado ? "active_cazador" : ""}`}
+                onClick={() => handleEstadoChange(estado)}
+              >
+                {estado}
+              </button>
+            ))}
           </div>
 
           <div className="searchBar_cazador">
-            <img
-              src="/icons/search.svg"
-              className="searchIcon_cazador"
-              alt="Buscar"
-            />
+            <img src="/icons/search.svg" className="searchIcon_cazador" alt="Buscar" />
             <input
               type="text"
               placeholder="Buscar misiones..."
@@ -161,7 +136,7 @@ export default function MissionsPage() {
                 <th className="tcazador">Acciones</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className= "tablahc">
               {filteredMissions.map((mission) => (
                 <tr key={mission.id}>
                   <td className="tdcazador">{mission.mision}</td>
@@ -169,32 +144,32 @@ export default function MissionsPage() {
                   <td className="tdcazador">{mission.fechaInicio}</td>
                   <td className="tdcazador">{mission.fechaLimite}</td>
                   <td>
-                    <button
-                      className="detailButton_cazador"
-                    >
+                    <button className="detailButton_cazador" onClick={() => handleDetailsClick(mission)}>
                       Detalles
                     </button>
                   </td>
                 </tr>
               ))}
-              {/* Ejemplo estático */}
-              <tr className="tr_cazador">
-                <td className="tdcazador">Ejemplo de Misión</td>
-                <td className="tdcazador">En progreso</td>
-                <td className="tdcazador">2023-01-01</td>
-                <td className="tdcazador">2023-12-31</td>
-                <td className="tdcazador">
-                  <button
-                    className="detailButton_cazador"
-                  >
-                    Detalles
-                  </button>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
       </div>
+
+      {/* Modal para mostrar detalles de la misión */}
+      {selectedMission && (
+        <div className="modal_cazador">
+          <div className="modal_content_cazador">
+            <h2>{selectedMission.mision}</h2>
+            <p><strong>Alias:</strong> {selectedMission.alias}</p>
+            <p><strong>Estado:</strong> {selectedMission.estado}</p>
+            <p><strong>Fecha de Inicio:</strong> {selectedMission.fechaInicio}</p>
+            <p><strong>Fecha Límite:</strong> {selectedMission.fechaLimite}</p>
+            <button className="closeButton_cazador" onClick={closeModal}>
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -22,6 +22,6 @@ export interface Mision {
     id_hokage: string;
 }
 
-export interface CreateMision extends Pick<Mision, 'titulo' | 'descripcion' | 'rango' | 'id_hokage'> {
+export interface CreateMision extends Pick<Mision, 'titulo' | 'descripcion' | 'rango' | 'id_hokage' | 'id_cazador'> {
 
 }

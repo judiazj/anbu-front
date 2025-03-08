@@ -24,19 +24,23 @@ export default function CreateMission() {
             window.location.href='/perfil'
         }
 
-    useEffect(() => {
-        const fetchShinobis = async () => {
-            try {
-                const shinobis = await getShinobis();
-                const disponibles = shinobis.filter(shinobi => shinobi.estado === "disponible");
-                setAvailableShinobis(disponibles);
-            } catch (error) {
-                console.error("Error al obtener shinobis:", error);
-            }
-        };
-
-        fetchShinobis();
-    }, []);
+        useEffect(() => {
+            const fetchShinobis = async () => {
+                try {
+                    const shinobis = await getShinobis();
+                    // Filtrar por estado "disponible" y rol "cazador"
+                    const disponibles = shinobis.filter(
+                        (shinobi) => shinobi.estado === "disponible" && shinobi.rango === "cazador"
+                    );
+                    setAvailableShinobis(disponibles);
+                } catch (error) {
+                    console.error("Error al obtener shinobis:", error);
+                }
+            };
+        
+            fetchShinobis();
+        }, []);
+        
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -133,28 +137,29 @@ export default function CreateMission() {
                                     <th>Asignar</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                {availableShinobis.length > 0 ? (
-                                    availableShinobis.map((shinobi) => (
-                                        <tr key={shinobi._id}>
-                                            <td>{shinobi.alias}</td>
-                                            <td>{new Date(shinobi.fecha_ingreso).toLocaleDateString()}</td>
-                                            <td>
-                                                <input
-                                                    type="radio"
-                                                    name="shinobi"
-                                                    value={shinobi._id}
-                                                    onChange={(e) => setSelectedShinobi(e.target.value)}
-                                                />
-                                            </td>
-                                        </tr>
-                                    ))
-                                ) : (
-                                    <tr>
-                                        <td colSpan={3}>No hay shinobis disponibles.</td>
+                            <tbody className="TablaCM">
+                            {availableShinobis.length > 0 ? (
+                                availableShinobis.map((shinobi) => (
+                                    <tr key={shinobi._id}>
+                                        <td>{shinobi.alias}</td>
+                                        <td>{new Date(shinobi.fecha_ingreso).toLocaleDateString()}</td>
+                                        <td>
+                                            <input
+                                                type="radio"
+                                                name="shinobi"
+                                                value={shinobi._id}
+                                                onChange={(e) => setSelectedShinobi(e.target.value)}
+                                            />
+                                        </td>
                                     </tr>
-                                )}
-                            </tbody>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan={3}>No hay shinobis disponibles.</td>
+                                </tr>
+                            )}
+                         </tbody>
+
                         </table>
 
                         <div className="buttons_creacion">
