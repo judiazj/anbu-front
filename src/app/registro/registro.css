@@ -56,7 +56,7 @@
     display: none;
 }
 
-.fondoreg {
+body {
     background-color: #121212;
     color: white;
     font-family: Arial, sans-serif;
@@ -65,15 +65,21 @@
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
-                url('https://pa1.aminoapps.com/6651/b8e571f4a827a3584b2cf05d1e60c14fb429b92b_hq.gif') 
-                no-repeat center center fixed;
-    background-size: cover;
-    z-index: -1; 
-    
 }
 
-
+/* 🎇 Efecto de fondo con partículas de chakra */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://pa1.aminoapps.com/6651/b8e571f4a827a3584b2cf05d1e60c14fb429b92b_hq.gif') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.4; 
+    z-index: -1; 
+}
 
 
 @keyframes chakraGlow {
@@ -99,8 +105,7 @@
 }
 
 .inputreg {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),  
-        url('https://static.vecteezy.com/system/resources/previews/047/826/220/non_2x/realistic-smoke-effect-on-transparent-background-free-png.png') repeat;
+    background: url('https://static.vecteezy.com/system/resources/previews/047/826/220/non_2x/realistic-smoke-effect-on-transparent-background-free-png.png') repeat;
     background-size: cover;
     animation: smokeAnimation 5s infinite linear;
 }
@@ -186,4 +191,3 @@
     50% { opacity: 0.5; transform: scale(1.1); }
     100% { opacity: 0; transform: scale(0); }
 }
-

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import "./historial_hokage.css";
 import Link from "next/link";
 import { getMisions } from "@/services/mision-service";
@@ -22,7 +21,7 @@ interface Cazador {
 
 const {id, rango} = decodeToken();
         if (rango!=='hokage'){
-            window.location.href='/perfil'
+            // window.location.href='/perfil'
         }
 
 const HistorialHokage = () => {
@@ -31,7 +30,9 @@ const HistorialHokage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedEstado, setSelectedEstado] = useState("Todo");
 
+
   useEffect(() => {
+    
     const fetchMissions = async () => {
       try {
         const { data } = await getMisions();
@@ -52,7 +53,7 @@ const HistorialHokage = () => {
     };
 
     fetchMissions();
-  }, []);
+  }, [missions]);
 
   const filteredMissions = missions.filter((mission) => {
     return (
@@ -142,6 +143,7 @@ const HistorialHokage = () => {
               <td className="tdhk">{mission.id_cazador}</td>
               <td className="tdhk">
                 <select
+                  className="select_hk"
                   value={mission.estado}
                   onChange={(e) => handleStateChange(mission.id, e.target.value)}>
                   <option value="en proceso">En proceso</option>
