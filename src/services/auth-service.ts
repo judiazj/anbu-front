@@ -16,7 +16,7 @@ export const login = async (alias: string, password: string) => {
   }
 }
 
-export const register = async (alias: string, password: string, img?: string) => {
+export const registerShinobi = async (alias: string, password: string, img?: string) => {
   const { data, status } = await axiosInstance.post(AUTH_ENDPOINT.register, {
     alias,
     password,
