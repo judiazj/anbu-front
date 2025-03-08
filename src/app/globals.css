@@ -12,6 +12,7 @@ body {
   animation: fadeInZoom 2s ease-in-out;
 }
 
+
 .container {
   width: 90%; 
   margin: auto;
@@ -24,6 +25,14 @@ header {
   padding: 15px 20px;
   background-color: #000;
   color: white;
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #3b4754;
+  background-color: red;
 }
 
 /* 🔹 Logo */

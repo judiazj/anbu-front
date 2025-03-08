@@ -1,10 +1,11 @@
-
 body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #121212; /* Fondo oscuro */
-  color: #ffffff;           /* Texto blanco */
+  background-color: #121212;
+  /* Fondo oscuro */
+  color: #ffffff;
+  /* Texto blanco */
   font-family: sans-serif;
 }
 
@@ -13,92 +14,88 @@ body {
 /* Contenedor principal que abarca toda la pantalla */
 .container {
   display: flex;
-  min-height: 85vh; /* Para ocupar todo el alto */
+  min-height: 85vh;
+  /* Para ocupar todo el alto */
 }
 
 .sidebar {
-    width: 200px;
-    height: auto;
-    margin-top: 60px;
-    background-color: #121417;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
+  width: 200px;
+  height: auto;
+  background-color: #121417;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
 }
 
 .action_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: #293038;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    font-size: 16px;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #293038;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  text-align: center;
 }
 
 .menu_button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
 }
 
-.section_button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #293038;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    padding: 10px 20px;
+.menu_button:hover {
+  background-color: #293038;
+  border-radius: 20px;
 }
 
 
 /* Encabezado: título y botón en contenedores separados */
 header {
-    width: auto;
-    height: 60px;
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #000;
-    color: white;
-    border-bottom: 1px solid #BDBDBD;
+  width: auto;
+  height: 60px;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #000;
+  color: white;
+  border-bottom: 1px solid #BDBDBD;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .logo svg {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    color: white;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  color: white;
 }
 
 .titleContainer {
@@ -109,13 +106,15 @@ header {
 
 .title {
   font-size: 30px;
-  margin: 0; /* Sin margen superior/inferior extra */
+  margin: 0;
+  /* Sin margen superior/inferior extra */
 }
 
 .buttonContainer {
   /* Si quieres que el botón se vea centrado */
   text-align: center;
-  margin-bottom: 20px; /* Ajusta si quieres más o menos espacio */
+  margin-bottom: 20px;
+  /* Ajusta si quieres más o menos espacio */
   margin-top: 40px;
 }
 
@@ -195,5 +194,3 @@ header {
   text-align: center;
   border-bottom: 1px solid #333333;
 }
-
-

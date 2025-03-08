@@ -6,12 +6,12 @@ body {
     font-family: 'Noto Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #111;
+    background-color: #1b2127;
     color: #ddd;
 }
 
 .mission-container {
-    width: 80%;
+    height: 100vh;
     margin: auto;
 }
 
@@ -45,7 +45,6 @@ header {
     border: none;
     border-radius: none;
     padding: 20px;
-    margin-top: 50px;
 }
 
 form {
@@ -60,7 +59,8 @@ label {
     gap: 8px;
 }
 
-input, textarea {
+input,
+textarea {
     padding: 10px;
     border: 1px solid #3b4754;
     background-color: #1b2127;
@@ -74,7 +74,8 @@ table {
     margin-top: 20px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #3b4754;
     padding: 10px;
     text-align: left;
