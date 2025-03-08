@@ -2,25 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.containerR {
-    background-color: #1e1e1e;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 420px;
-    text-align: center;
-}
-
 
 .logoreg {
     display: flex;
@@ -37,37 +18,25 @@ body {
 }
 
 
-.form-section h2 {
+.form-sectionreg h2 {
     font-size: 24px;
     text-align: center;
 }
 
-.form-section p {
-    font-size: 18px;
-    text-align: center;
-}
+
 
 .labelreg {
     display: block;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     margin-top: 15px;
 }
 
-.inputreg {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
-    font-size: 16px;
-}
 
-
-.form-container {
+.form-containerreg {
     margin-top: 20px;
     text-align: center;
+    
 }
 
 .custom-file-label {
@@ -87,9 +56,101 @@ body {
     display: none;
 }
 
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
+/* 🎇 Efecto de fondo con partículas de chakra */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://pa1.aminoapps.com/6651/b8e571f4a827a3584b2cf05d1e60c14fb429b92b_hq.gif') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.4; 
+    z-index: -1; 
+}
+
+
+@keyframes chakraGlow {
+    from { opacity: 0.1; transform: scale(1); }
+    to { opacity: 0.3; transform: scale(1.05); }
+}
+
+/* 🥷 Efecto ninja en el contenedor */
+.containerR {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+    position: relative;
+}
+
+@keyframes smokeAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.inputreg {
+    background: url('https://static.vecteezy.com/system/resources/previews/047/826/220/non_2x/realistic-smoke-effect-on-transparent-background-free-png.png') repeat;
+    background-size: cover;
+    animation: smokeAnimation 5s infinite linear;
+}
+
+/* ✨ Brillo dinámico en los inputs */
+.inputreg {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 1s ease-out forwards;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.inputreg:nth-child(1) { animation-delay: 0.3s; }
+.inputreg:nth-child(2) { animation-delay: 0.6s; }
+.inputreg:nth-child(3) { animation-delay: 0.9s; }
+
+/* Efecto de humo al pasar el cursor en los inputs */
+.inputreg:focus {
+    background-color: #222;
+    outline: none;
+}
+
+/* 🎭 Efecto de desaparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🔥 Botón con sombra al pasar el cursor */
 .register-button {
-    background-color: #ffffff;
+    background-color: white;
     color: black;
     border: none;
     padding: 12px;
@@ -99,4 +160,35 @@ body {
     font-size: 16px;
     font-weight: bold;
     margin-top: 15px;
+    transition: opacity 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
 }
+
+.register-button:hover {
+    opacity: 0.7;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+/* ⚡ Sello ANBU en el botón */
+.register-button::after {
+    content: '封印術';
+    font-size: 14px;
+    display: block;
+    color: red;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.register-button:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+@keyframes vanishEffect {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+    100% { opacity: 0; transform: scale(0); }
+}
+

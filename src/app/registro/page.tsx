@@ -13,27 +13,27 @@ const RegistroPage = () => {
             </div>
 
         <main>
-            <section className="form-section">
+            <section className="form-sectionreg">
                 <h2>Bienvenido a ANBU</h2>
                 <p>¡Únete a nosotros!</p>
                 <form>  
-                <label className="labelreg">Alias
-                    <input className="inputreg" type="text" placeholder="Ingresa tu alias"/>
-                </label>
-                <label className="labelreg">Contraseña
-                    <input className="inputreg" type="password" placeholder="Primera contraseña"/>
-                </label>
-                <label className="labelreg">Palabra secreta
-                    <input className="inputreg" type="text" placeholder="Jutsu de seguridad"/>
-                </label>
+                <label className="labelreg" htmlFor="alias">Alias</label>
+                <input id="alias" className="inputreg" type="text" placeholder="Ingresa tu alias"/>
 
-                <div className="form-container">
-                    <h1>Sube tu foto de perfil</h1>
+                <label className="labelreg" htmlFor="password">Contraseña</label>
+                <input id="password" className="inputreg" type="password" placeholder="Primera contraseña"/>
+
+                <label className="labelreg" htmlFor="secret">Palabra secreta</label>
+                <input id="secret" className="inputreg" type="text" placeholder="Jutsu de seguridad"/>
+
+                <div className="form-containerreg">
+                    <h1 className="h1reg">Sube tu foto de perfil</h1>
                     <label htmlFor="profileImage" className="custom-file-label">Foto de perfil</label>
                     <input type="file" id="profileImage" className="input-file" accept="image/*" />
                 </div>
-
+                <Link href="/perfil">
                 <button type="submit" className="register-button">Registrar</button>
+                </Link>
                 </form>
             </section>
         </main>
