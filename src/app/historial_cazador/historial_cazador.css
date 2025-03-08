@@ -1,51 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Quita márgenes por defecto del body */
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: #121212;
-  /* Fondo oscuro */
-  color: #ffffff;
-  /* Texto blanco */
-  font-family: sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #121212 !important;
+  color: #fff !important;
+  font-family: sans-serif !important;
 }
 
-/* 2) Estilos locales (CSS Modules) */
-
-/* Contenedor principal que abarca toda la pantalla */
-.container {
+/* Contenedor principal: Header arriba, contenido debajo */
+.container_cazador {
   display: flex;
-  min-height: 85vh;
-  /* Para ocupar todo el alto */
+  flex-direction: column; 
+  min-height: 100vh;
 }
 
-.sidebar {
-  width: 200px;
-  height: auto;
-  background-color: #121417;
+/* Si quieres que el <header> abarque todo el ancho,
+   dale un fondo y un alto fijos */
+.header_cazador {
+  background-color: #000; 
+  color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px; 
+  border-bottom: 1px solid #333;
+}
+
+/* Logo dentro del header */
+.logo_cazador{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logo_cazador svg {
+  width: 30px;
+  height: 30px;
   color: white;
+}
+
+/* Contenido principal (lado izquierdo + lado derecho) */
+.mainContent_cazador {
+  display: flex; 
+  flex: 1; /* Ocupar el espacio restante */
+}
+
+/* Panel izquierdo */
+.leftContainer_cazador {
+  width: 290px;
+  background-color: #121417;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   padding: 20px;
 }
 
-.action_button {
+/* Panel derecho */
+.rightContainer_cazador {
+  flex: 1;
+  background-color: #121417;
+  padding: 20px;
+}
+
+/* Título de la sección de misiones */
+.headerContainer_cazador {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: #293038;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  font-size: 16px;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.titleContainer_cazador {
+  margin-bottom: 10px;
+}
+
+.title_cazador {
+  font-size: 30px;
+  margin: 0;
   text-align: center;
 }
 
-.menu_button {
+/* Sidebar */
+.sidebar_cazador {
+  margin-top: 20px;
+  background-color: #121417;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.menu_button_cazador {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -55,84 +105,17 @@ body {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 10px 0;
 }
 
-.menu_button:hover {
-  background-color: #293038;
-  border-radius: 20px;
-}
-
-
-/* Encabezado: título y botón en contenedores separados */
-header {
-  width: auto;
-  height: 60px;
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #000;
-  color: white;
-  border-bottom: 1px solid #BDBDBD;
-}
-
-.profile-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.logo svg {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  color: white;
-}
-
-.titleContainer {
-  /* Deja un poco más de espacio debajo del título */
-  margin-bottom: 20px;
-  margin-inline: 80px;
-}
-
-.title {
-  font-size: 30px;
-  margin: 0;
-  /* Sin margen superior/inferior extra */
-}
-
-.buttonContainer {
-  /* Si quieres que el botón se vea centrado */
-  text-align: center;
-  margin-bottom: 20px;
-  /* Ajusta si quieres más o menos espacio */
-  margin-top: 40px;
-}
-
-/* Panel derecho: Filtros, buscador y tabla */
-.rightContainer {
-  flex: 1;
-  background-color: #121417;
-  padding: 20px;
-}
-
-/* Filtros */
-.filters {
+/* Filtros y buscador en el panel derecho */
+.filters_cazador {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.filterButton {
+.filterButton_cazador {
   background-color: #333333;
   color: #ffffff;
   border: none;
@@ -141,32 +124,32 @@ header {
   cursor: pointer;
 }
 
-.filterButton:hover {
+.filterButton_cazador:hover {
   background-color: #444444;
 }
 
-.active {
+.active_cazador {
   background-color: #293038;
 }
 
-/* Barra de búsqueda */
-.searchBar {
+.searchBar_cazador {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.searchIcon {
+.searchIcon_cazador {
   color: #ffffff;
-  border: none;
-  padding: 8px;
-  border-radius: 4px;
   cursor: pointer;
-  margin-bottom: -15;
+  width: 24px;
+  height: 24px;
 }
 
-.searchBar input {
-  width: 95%;
-  height: 20px;
-  padding: 8px;
+.searchInput_cazador {
+  width: 100%;
+  height: 36px;
+  padding: 8px 16px;
   border: none;
   border-radius: 20px;
   outline: none;
@@ -174,8 +157,8 @@ header {
   background-color: #293038;
 }
 
-/* Tabla de misiones */
-.table {
+/* Tabla */
+.table_cazador {
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;
@@ -184,13 +167,30 @@ header {
   border-end-start-radius: 0px;
 }
 
-.table thead {
+.table_cazador thead {
   background-color: #333333;
 }
 
-.table th,
-.table td {
+.tcazador,
+.tdcazador{
   padding: 12px;
   text-align: center;
-  border-bottom: 1px solid #333333;
+  border-bottom: 0.5px solid white;
+}
+
+.detailButton_cazador {
+  background-color: #333333;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.detailButton_cazador:hover {
+  background-color: #334;
+}
+
+.tr_cazador {
+  background-color: #293038;
 }

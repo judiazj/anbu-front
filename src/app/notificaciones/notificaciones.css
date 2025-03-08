@@ -1,18 +1,18 @@
-.page-container {
+.page-container_noti {
     max-width: 1200px;
     margin: auto;
     padding: 20px;
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #121417;
-    color: #ddd;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #121417 !important;
+    color: #ddd !important;
 }
 
-header {
+.header_noti {
     width: auto;
     position: relative;
     display: flex;
@@ -24,21 +24,21 @@ header {
     border-bottom: 1px solid #BDBDBD;
 }
 
-.logo {
+.logo_noti {
     display: flex;
     align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-.logo svg {
+.logo_noti svg {
     width: 30px;
     height: 30px;
     margin-right: 10px;
     color: white;
 }
 
-.notification-container {
+.notification-container_noti {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -47,7 +47,7 @@ header {
     padding: 20px;
 }
 
-.sidebar {
+.sidebar_noti {
     width: 200px;
     height: auto;
     margin-left: -100px;
@@ -62,14 +62,14 @@ header {
     border-radius: 10px;
 }
 
-.mission_list {
+.mission_list_noti {
     flex-grow: 1;
     background-color: #121417;
     padding: 20px;
     border-radius: 10px;
 }
 
-.mission_item {
+.mission_item_noti {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,7 +77,7 @@ header {
     border-bottom: 1px solid #333;
 }
 
-.action_button {
+.action_button_noti {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +92,7 @@ header {
     text-align: center;
 }
 
-.menu_button {
+.menu_button_noti {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -105,7 +105,7 @@ header {
     padding: 10px 15px;
 }
 
-.menu_button:hover {
+.menu_button_noti:hover {
     background-color: #293038;
     border-radius: 20px;
 }
