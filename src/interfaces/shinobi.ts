@@ -7,3 +7,5 @@ export interface Shinobi {
     estado: string;
     img?: string;
 }
+
+export interface UpdateShinobi extends Partial<Pick<Shinobi, 'estado' | 'img'>> { }

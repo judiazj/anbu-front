@@ -1,3 +1,5 @@
-export { getShinobi } from './shinobi-service';
-export { login } from './auth-service';
-export { getMisionsByShinobi } from './mision-service';
+export { getShinobi, getShinobis, updateShinobi } from './shinobi-service';
+export { login, register } from './auth-service';
+export { getMisionsByShinobi, createMision, getMisionById, getMisions } from './mision-service';
+export { createNotification, getNotificationById, getNotifications } from './notificacion-service';
+export { uploadFile } from './file-service';

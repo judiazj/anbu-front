@@ -34,7 +34,7 @@ export const useProfile = () => {
 
 
             setShinobiInfo(shinobi);
-            setMisionsShinobi(misionsShinobi);
+            setMisionsShinobi(misionsShinobi.data);
         };
 
         fetchData();

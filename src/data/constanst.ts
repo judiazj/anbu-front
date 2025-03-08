@@ -15,3 +15,6 @@ export const MISIONES_ENDPOINT = {
 export const NOTIFICACIONES_ENDPOINT = {
   base: "/notificaciones",
 }
+export const FILE_ENDPOINT = {
+  base: "/files/upload",
+}
