@@ -17,7 +17,7 @@ export function Button({
         : 'bg-gray-600 hover:bg-gray-700';
   
     return (
-      <button onClick={onClick} className={`${baseStyles} ${variantStyles} ${className}`}>
+      <button  onClick={onClick} className={`${baseStyles} ${variantStyles} ${className}`}>
         {children}
       </button>
     );

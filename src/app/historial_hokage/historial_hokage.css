@@ -4,11 +4,11 @@
 
 /* Quita márgenes por defecto del body */
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #121212;
-  color: #fff;
-  font-family: sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #121212 !important;
+  color: #fff !important;
+  font-family: sans-serif !important;
 }
 
 /* Contenedor principal: Header arriba, contenido debajo */
@@ -20,7 +20,7 @@ body {
 
 /* Si quieres que el <header> abarque todo el ancho,
    dale un fondo y un alto fijos */
-header {
+.header_hk {
   background-color: #000; 
   color: #fff;
   height: 60px;
@@ -31,7 +31,7 @@ header {
 }
 
 /* Logo dentro del header */
-.logo {
+.logo_hk{
   display: flex;
   align-items: center;
   gap: 8px;
@@ -39,7 +39,7 @@ header {
   font-weight: bold;
 }
 
-.logo svg {
+.logo_hk svg {
   width: 30px;
   height: 30px;
   color: white;
@@ -213,8 +213,8 @@ header {
   background-color: #333333;
 }
 
-.table_hk th,
-.table_hk td {
+.thk,
+.tdhk{
   padding: 12px;
   text-align: center;
   border-bottom: 1px solid #333333;

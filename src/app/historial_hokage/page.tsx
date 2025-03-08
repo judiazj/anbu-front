@@ -75,7 +75,15 @@ export default function MissionsPage() {
   return (
     <div className="container_hk">
       {/* Header ARRIBA dentro del contenedor */}
-      <Header />
+      <header className="header_hk">
+        <div className="logo_hk">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+          </svg>
+          <h2 className="h2hk">
+            ANBU</h2>
+        </div>
+      </header>
 
       {/* Contenido principal (lado izquierdo + lado derecho) */}
       <div className="mainContent_hk">
@@ -179,22 +187,22 @@ export default function MissionsPage() {
           <table className="table_hk">
             <thead>
               <tr>
-                <th>Misión</th>
-                <th>Cazador ANBU</th>
-                <th>Estado</th>
-                <th>Fecha de Inicio</th>
-                <th>Fecha Límite</th>
-                <th>Acciones</th>
+                <th className="thk">Misión</th>
+                <th className="thk">Cazador ANBU</th>
+                <th className="thk">Estado</th>
+                <th className="thk">Fecha de Inicio</th>
+                <th className="thk">Fecha Límite</th>
+                <th className="thk">Acciones</th>
               </tr>
             </thead>
             <tbody>
               {filteredMissions.map((mission) => (
                 <tr key={mission.id}>
-                  <td>{mission.mision}</td>
-                  <td>{mission.cazadorAnbu}</td>
-                  <td>{mission.estado}</td>
-                  <td>{mission.fechaInicio}</td>
-                  <td>{mission.fechaLimite}</td>
+                  <td className="tdhk">{mission.mision}</td>
+                  <td className="tdhk">{mission.cazadorAnbu}</td>
+                  <td className="tdhk">{mission.estado}</td>
+                  <td className="tdhk">{mission.fechaInicio}</td>
+                  <td className="tdhk">{mission.fechaLimite}</td>
                   <td>
                     <button
                       className="detailButton_hk"

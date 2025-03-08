@@ -22,14 +22,14 @@ export const PasswordInput = ({ currentPassword }: Props) => {
                 <strong>Nueva contraseña:</strong>
             </p>
             <div className="password-container">
-                <input
+                <input className='password-input'
                     type={showPassword ? "text" : "password"}
                     value={password}
                     readOnly
                 />
-                <Button onClick={() => setShowPassword(!showPassword)} className="toggle-btn">
+                <button  onClick={() => setShowPassword(!showPassword)} className="toggle-btn">
                     {showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
-                </Button>
+                </button>
             </div>
         </div>
     );

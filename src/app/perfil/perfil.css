@@ -15,7 +15,7 @@ body {
     margin: auto;
 }
 
-header {
+.header_perfil {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -25,14 +25,14 @@ header {
     border-bottom: 1px solid #BDBDBD;
 }
 
-.logo {
+.logo_perfil {
     display: flex;
     align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-.logo svg {
+.logo_perfil svg {
     width: 30px;
     height: 30px;
     margin-right: 10px;
@@ -95,8 +95,8 @@ header {
     align-items: center;
 }
 
-input[type="password"],
-input[type="text"] {
+.password-input[type="password"],
+.password-input[type="text"] {
     width: 100%;
     max-width: 300px;
     padding: 10px;
@@ -106,7 +106,7 @@ input[type="text"] {
     border-radius: 8px;
 }
 
-button {
+.toggle-btn {
   padding: 10px 16px;
   border-radius: 50px;
   background-color: #333; 

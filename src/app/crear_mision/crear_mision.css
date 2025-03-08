@@ -6,16 +6,16 @@ body {
     font-family: 'Noto Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1b2127;
+    background-color: #111;
     color: #ddd;
 }
 
 .mission-container {
-    height: 100vh;
+    width: 80%;
     margin: auto;
 }
 
-header {
+.header_creacion {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -25,14 +25,14 @@ header {
     border-bottom: 1px solid #BDBDBD;
 }
 
-.logo {
+.logo_creacion {
     display: flex;
     align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-.logo svg {
+.logo_creacion svg {
     width: 30px;
     height: 30px;
     margin-right: 10px;
@@ -45,6 +45,7 @@ header {
     border: none;
     border-radius: none;
     padding: 20px;
+    margin-top: 50px;
 }
 
 form {
@@ -59,8 +60,7 @@ label {
     gap: 8px;
 }
 
-input,
-textarea {
+input, textarea {
     padding: 10px;
     border: 1px solid #3b4754;
     background-color: #1b2127;
@@ -74,21 +74,20 @@ table {
     margin-top: 20px;
 }
 
-th,
-td {
+.th_creacion {
     border: 1px solid #3b4754;
     padding: 10px;
     text-align: left;
 }
 
-.buttons {
+.buttons_creacion {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
     margin-top: 20px;
 }
 
-button {
+.button_creacion {
     padding: 10px 16px;
     border-radius: 50px;
     background-color: #333;

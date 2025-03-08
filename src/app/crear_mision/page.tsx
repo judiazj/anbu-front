@@ -24,7 +24,15 @@ export default function CreateMission() {
 
     return (
         <div className="mission-container">
-            <Header />
+            <header className="header_creacion">
+                <div className="logo_creacion">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                    </svg>
+                    <h2 className="h2_creacion">
+                        ANBU</h2>
+                </div>
+            </header>
             <Card className="mission-card">
                 <CardContent>
                     <h2>Crear Misión</h2>
@@ -58,16 +66,16 @@ export default function CreateMission() {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Cazador</th>
-                                    <th>Fecha de ingreso</th>
-                                    <th>Asignar</th>
+                                    <th className="th_creacion">Cazador</th>
+                                    <th className="th_creacion">Fecha de ingreso</th>
+                                    <th className="th_creacion">Asignar</th>
                                 </tr>
                             </thead>
                         </table>
 
-                        <div className="buttons">
+                        <div className="buttons_creacion">
                             <Button>Cancelar</Button>
-                            <button type="submit" className="button">Crear misión</button>
+                            <button type="submit" className="button_creacion">Crear misión</button>
                         </div>
                     </form>
                 </CardContent>
