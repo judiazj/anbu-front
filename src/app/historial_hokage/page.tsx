@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import "./historial_hokage.css";
-import { Header } from "../components/header/Header";
 import Link from "next/link";
 
 interface Mission {
