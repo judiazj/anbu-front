@@ -4,6 +4,7 @@ import "./historial_hokage.css";
 import Link from "next/link";
 import { getMisions } from "@/services/mision-service";
 import { decodeToken } from "@/utils/decode-token";
+import { updateMissionState } from "@/services/mision-service"; // Importa el servicio para actualizar el estado de la misión
 
 interface Mission {
   id: number;
@@ -29,10 +30,9 @@ const HistorialHokage = () => {
   const [cazadores, setCazadores] = useState<Cazador[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedEstado, setSelectedEstado] = useState("Todo");
-
+  const [updatedMission, setUpdatedMission] = useState<Mission | null>(null); // Estado para la misión actualizada
 
   useEffect(() => {
-    
     const fetchMissions = async () => {
       try {
         const { data } = await getMisions();
@@ -53,7 +53,21 @@ const HistorialHokage = () => {
     };
 
     fetchMissions();
-  }, [missions]);
+  }, []); // Eliminar 'missions' de las dependencias
+
+  useEffect(() => {
+    if (updatedMission) {
+      const updateMission = async () => {
+        try {
+          await updateMissionState(updatedMission.id.toString(), updatedMission.estado);
+        } catch (error) {
+          console.error("Error al actualizar el estado de la misión:", error);
+        }
+      };
+
+      updateMission();
+    }
+  }, [updatedMission]); // Ejecutar cuando updatedMission cambie
 
   const filteredMissions = missions.filter((mission) => {
     return (
@@ -71,7 +85,11 @@ const HistorialHokage = () => {
   };
 
   const handleStateChange = (id: number, newState: string) => {
-    setMissions(missions.map(mission => mission.id === id ? { ...mission, estado: newState } : mission));
+    setMissions(prevMissions => prevMissions.map(mission => mission.id === id ? { ...mission, estado: newState } : mission));
+    const missionToUpdate = missions.find(mission => mission.id === id);
+    if (missionToUpdate) {
+      setUpdatedMission({ ...missionToUpdate, estado: newState });
+    }
   };
 
   return (

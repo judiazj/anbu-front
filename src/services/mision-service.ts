@@ -22,3 +22,8 @@ export const getMisionById = async (id: string) => {
     const { data, status } = await axiosInstance.get<Mision>(`${MISIONES_ENDPOINT.base}/${id}`);
     return { data, status };
 }
+
+export const updateMissionState = async (id: string, missionStatus: string) => {
+    const { data, status } = await axiosInstance.patch<Mision>(`${MISIONES_ENDPOINT.base}/${id}`);
+    return { data, status };
+}
