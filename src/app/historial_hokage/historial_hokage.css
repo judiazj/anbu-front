@@ -1,45 +1,50 @@
-/* Estilos globales (body sigue igual porque no es clase) */
+/* Quita márgenes por defecto del body */
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background-color: #121212; /* Fondo oscuro */
-  color: #ffffff;           /* Texto blanco */
+  background-color: #121212;
+  color: #fff;
   font-family: sans-serif;
 }
 
-/* Header principal */
-.header_hk {
-  width: auto;
-  height: 60px;
-  position: relative;
+/* Contenedor principal: Header arriba, contenido debajo */
+.container_hk {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #000;
-  color: white;
-  border-bottom: 1px solid #BDBDBD;
+  flex-direction: column; 
+  min-height: 100vh;
 }
 
-.logo_hk{
+/* Si quieres que el <header> abarque todo el ancho,
+   dale un fondo y un alto fijos */
+header {
+  background-color: #000; 
+  color: #fff;
+  height: 60px;
   display: flex;
   align-items: center;
+  padding: 0 20px; 
+  border-bottom: 1px solid #333;
+}
+
+/* Logo dentro del header */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.logo_hk svg {
+.logo svg {
   width: 30px;
   height: 30px;
-  margin-right: 10px;
   color: white;
 }
 
-/* Contenedor principal */
-.container_hk {
-  display: flex;
-  min-height: 85vh; /* Para ocupar todo el alto */
+/* Contenido principal (lado izquierdo + lado derecho) */
+.mainContent_hk {
+  display: flex; 
+  flex: 1; /* Ocupar el espacio restante */
 }
 
 /* Panel izquierdo */
@@ -51,72 +56,33 @@ body {
   padding: 20px;
 }
 
-/* Este se define aunque no lo uses en el código, por si quieres aprovecharlo */
-.action_button_hk {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: #293038;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  font-size: 16px;
-  text-align: center;
-}
-
-/* Menú lateral */
-.sidebar_hk {
-  width: 250px;
-  height: auto;
-  margin-top: 20px;
+/* Panel derecho */
+.rightContainer_hk {
+  flex: 1;
   background-color: #121417;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   padding: 20px;
-  border-radius: 10px;
 }
 
-.menu_button_hk {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  padding: 10px 15px;
-}
-
-/* Contenedor que usabas como "header" interno en la parte izquierda */
+/* Título de la sección de misiones */
 .headerContainer_hk {
-  /* Ajusta estilos si deseas, por ahora vacío */
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
-/* Título y botón */
 .titleContainer_hk {
-  margin-bottom: 20px;
-  margin-inline: 80px;
+  margin-bottom: 10px;
 }
 
 .title_hk {
   font-size: 30px;
-  margin: 0; /* Sin margen extra */
+  margin: 0;
 }
 
 .buttonContainer_hk {
   text-align: center;
   margin-bottom: 20px;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .createButton_hk {
@@ -132,9 +98,31 @@ body {
   background-color: #334;
 }
 
-/* Sección de cazadores ANBU */
+/* Sidebar */
+.sidebar_hk {
+  margin-top: 20px;
+  background-color: #121417;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.menu_button_hk {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
 .cazadoresSection_hk {
-  margin-top: 0px;
+  margin-top: 20px;
 }
 
 .cazadoresTitle_hk {
@@ -158,14 +146,7 @@ body {
   border-radius: 4px;
 }
 
-/* Panel derecho */
-.rightContainer_hk {
-  flex: 1;
-  background-color: #121417;
-  padding: 20px;
-}
-
-/* Filtros */
+/* Filtros y buscador en el panel derecho */
 .filters_hk {
   display: flex;
   gap: 10px;
@@ -185,30 +166,28 @@ body {
   background-color: #444444;
 }
 
-/* Estado activo del filtro */
 .active_hk {
   background-color: #293038;
 }
 
-/* Barra de búsqueda */
 .searchBar_hk {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .searchIcon_hk {
   color: #ffffff;
-  border: none;
-  padding: 8px;
-  border-radius: 4px;
   cursor: pointer;
-  margin-bottom: -15px; /* Corrige si deseas */
+  width: 24px;
+  height: 24px;
 }
 
-/* Input de búsqueda */
 .searchInput_hk {
-  width: 95%;
-  height: 20px;
-  padding: 8px;
+  width: 100%;
+  height: 36px;
+  padding: 8px 16px;
   border: none;
   border-radius: 20px;
   outline: none;
@@ -216,14 +195,12 @@ body {
   background-color: #293038;
 }
 
-/* Tabla de misiones */
+/* Tabla */
 .table_hk {
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;
-  border-radius: 20px;
-  border-end-end-radius: 0px;
-  border-end-start-radius: 0px;
+  border-radius: 10px;
 }
 
 .table_hk thead {
@@ -237,7 +214,6 @@ body {
   border-bottom: 1px solid #333333;
 }
 
-/* Botón de "Detalles" en la tabla */
 .detailButton_hk {
   background-color: #333;
   border: none;

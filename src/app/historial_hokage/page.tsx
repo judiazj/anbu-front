@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import "./historial_hokage.css"; // Importa el CSS (renombrado con sufijo _hk)
+import "./historial_hokage.css";
+import { Header } from "../components/header/Header";
 
 interface Mission {
   id: number;
@@ -20,13 +21,11 @@ interface Cazador {
 export default function MissionsPage() {
   const router = useRouter();
 
-  // Estados vacíos al inicio
   const [missions, setMissions] = useState<Mission[]>([]);
   const [cazadores, setCazadores] = useState<Cazador[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedEstado, setSelectedEstado] = useState("Todo");
 
-  // Efecto para cargar datos desde el backend (ejemplo con fetch)
   useEffect(() => {
     const fetchMissions = async () => {
       try {
@@ -52,7 +51,7 @@ export default function MissionsPage() {
     fetchCazadores();
   }, []);
 
-  // Filtrado de misiones según texto y estado
+  // Filtrado
   const filteredMissions = missions.filter((mission) => {
     const matchSearch = mission.mision
       .toLowerCase()
@@ -84,26 +83,14 @@ export default function MissionsPage() {
   };
 
   return (
-    <>
-      {/* Agregamos la clase al <header> para usar .header_hk en CSS */}
-      <header className="header_hk">
-        <div className="logo_hk">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
-              fill="currentColor"
-            ></path>
-          </svg>
-          <h2>ANBU</h2>
-        </div>
-      </header>
+    <div className="container_hk">
+      {/* Header ARRIBA dentro del contenedor */}
+      <Header />
 
-      <div className="container_hk">
+      {/* Contenido principal (lado izquierdo + lado derecho) */}
+      <div className="mainContent_hk">
         {/* Panel izquierdo */}
         <div className="leftContainer_hk">
-          {/* Contenedor de título y botón */}
           <div className="headerContainer_hk">
             <div className="titleContainer_hk">
               <h1 className="title_hk">Misiones</h1>
@@ -118,17 +105,16 @@ export default function MissionsPage() {
           <aside className="sidebar_hk">
             <nav>
               <button className="menu_button_hk">
-                <img src="/icons/notification.svg" />
+                <img src="/icons/notification.svg" alt="Notificaciones" />
                 <span>Notificaciones</span>
               </button>
               <button className="menu_button_hk" onClick={handleProfile}>
-                <img src="/icons/user.svg" />
+                <img src="/icons/user.svg" alt="Perfil" />
                 <span>Perfil</span>
               </button>
             </nav>
           </aside>
 
-          {/* Sección de cazadores ANBU */}
           <div className="cazadoresSection_hk">
             <h3 className="cazadoresTitle_hk">Cazadores ANBU disponibles</h3>
             <div className="cazadoresList_hk">
@@ -187,7 +173,11 @@ export default function MissionsPage() {
           </div>
 
           <div className="searchBar_hk">
-            <img src="/icons/search.svg" className="searchIcon_hk" />
+            <img
+              src="/icons/search.svg"
+              className="searchIcon_hk"
+              alt="Buscar"
+            />
             <input
               type="text"
               placeholder="Buscar misiones..."
@@ -230,6 +220,6 @@ export default function MissionsPage() {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 }
